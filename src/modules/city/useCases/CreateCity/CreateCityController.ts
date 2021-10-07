@@ -1,8 +1,8 @@
 import { IBaseController } from '@core/infra/IBaseController';
+import { City } from '@modules/city/domain/City';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { City } from '../domain/City';
 import { CreateCityUseCase } from './CreateCityUseCase';
 
 class CreateCityController implements IBaseController {
