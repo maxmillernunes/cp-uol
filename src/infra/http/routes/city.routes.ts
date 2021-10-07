@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { createCityController } from '../factories/CitiesController';
+import { createCityController } from '../factories/controllers/MakeCitiesController';
 
 const citiesRoutes = Router();
 
