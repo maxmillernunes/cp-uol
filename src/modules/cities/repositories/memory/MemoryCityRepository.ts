@@ -1,6 +1,6 @@
-import { City } from '@modules/city/domain/City';
-import { CreateCityDTO } from '@modules/city/dtos/CreateCityDTO';
-import { ListCitiesDTOS } from '@modules/city/dtos/ListCitiesDTOS';
+import { City } from '@modules/cities/domain/City';
+import { CreateCityDTO } from '@modules/cities/dtos/CreateCityDTO';
+import { ListCitiesDTOS } from '@modules/cities/dtos/ListCitiesDTOS';
 
 import { ICityRepository } from '../ICityRepository';
 

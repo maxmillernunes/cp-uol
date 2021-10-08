@@ -1,4 +1,4 @@
-import { MemoryCityRepository } from '@modules/city/repositories';
+import { MemoryCityRepository } from '@modules/cities/repositories';
 
 import { ListCitiesUseCase } from '.';
 

@@ -1,5 +1,5 @@
 import { IBaseController } from '@core/infra/IBaseController';
-import { City } from '@modules/city/domain/City';
+import { City } from '@modules/cities/domain/City';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

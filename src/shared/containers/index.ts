@@ -1,1 +1,1 @@
-import '@modules/city/container';
+import '@modules/cities/container';

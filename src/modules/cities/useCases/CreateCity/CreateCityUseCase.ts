@@ -1,7 +1,7 @@
-import { City } from '@modules/city/domain/City';
-import { CreateCityDTO } from '@modules/city/dtos/CreateCityDTO';
-import { CityAlreadyExists } from '@modules/city/errors/CityAlreadyExists';
-import { CITY, ICityRepository } from '@modules/city/repositories';
+import { City } from '@modules/cities/domain/City';
+import { CreateCityDTO } from '@modules/cities/dtos/CreateCityDTO';
+import { CityAlreadyExists } from '@modules/cities/errors/CityAlreadyExists';
+import { CITY, ICityRepository } from '@modules/cities/repositories';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()

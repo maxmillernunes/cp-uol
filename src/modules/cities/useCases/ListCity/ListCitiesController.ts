@@ -1,5 +1,5 @@
 import { IBaseController } from '@core/infra/IBaseController';
-import { ListCitiesDTOS } from '@modules/city/dtos/ListCitiesDTOS';
+import { ListCitiesDTOS } from '@modules/cities/dtos/ListCitiesDTOS';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

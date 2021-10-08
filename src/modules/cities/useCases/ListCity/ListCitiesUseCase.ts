@@ -1,6 +1,6 @@
-import { City } from '@modules/city/domain/City';
-import { ListCitiesDTOS } from '@modules/city/dtos/ListCitiesDTOS';
-import { CITY, ICityRepository } from '@modules/city/repositories';
+import { City } from '@modules/cities/domain/City';
+import { ListCitiesDTOS } from '@modules/cities/dtos/ListCitiesDTOS';
+import { CITY, ICityRepository } from '@modules/cities/repositories';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()

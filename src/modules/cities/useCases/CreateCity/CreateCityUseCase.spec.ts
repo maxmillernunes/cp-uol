@@ -1,5 +1,5 @@
-import { CityAlreadyExists } from '@modules/city/errors/CityAlreadyExists';
-import { MemoryCityRepository } from '@modules/city/repositories';
+import { CityAlreadyExists } from '@modules/cities/errors/CityAlreadyExists';
+import { MemoryCityRepository } from '@modules/cities/repositories';
 import { validate } from 'uuid';
 
 import { CreateCityUseCase } from '.';
