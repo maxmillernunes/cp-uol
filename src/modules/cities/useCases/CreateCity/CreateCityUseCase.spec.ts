@@ -7,11 +7,11 @@ import { CreateCityUseCase } from '.';
 describe('City', () => {
   describe('CreateCity', () => {
     let createCity: CreateCityUseCase;
-    let citiesRepository: MemoryCityRepository;
+    let cityRepository: MemoryCityRepository;
 
     beforeEach(() => {
-      citiesRepository = new MemoryCityRepository();
-      createCity = new CreateCityUseCase(citiesRepository);
+      cityRepository = new MemoryCityRepository();
+      createCity = new CreateCityUseCase(cityRepository);
     });
 
     it('Should be able to create a new city', async () => {
@@ -52,7 +52,7 @@ describe('City', () => {
         state: 'Rio Grande do Norte',
       });
 
-      const cities = await citiesRepository.findByName('Pereiro');
+      const cities = await cityRepository.findByName('Pereiro');
 
       expect(city).toHaveProperty('id');
       expect(city).toHaveProperty('name', 'Pereiro');
