@@ -13,7 +13,6 @@ const customersRoutes = Router();
 customersRoutes.post('/', createCustomerController.handle);
 customersRoutes.get('/', listCustomersController.handle);
 customersRoutes.get('/:customer_id', findCustomerController.handle);
-customersRoutes.post('/:customer_id', removeCustomerController.handle);
 customersRoutes.delete('/:customer_id', removeCustomerController.handle);
 customersRoutes.patch('/:customer_id', updateCustomerController.handle);
 
