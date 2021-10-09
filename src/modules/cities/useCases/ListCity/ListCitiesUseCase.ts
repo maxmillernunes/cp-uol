@@ -1,5 +1,5 @@
 import { City } from '@modules/cities/domain/City';
-import { ListCitiesDTOS } from '@modules/cities/dtos/ListCitiesDTOS';
+import { IListCitiesDTOS } from '@modules/cities/dtos/IListCitiesDTOS';
 import { CITY, ICityRepository } from '@modules/cities/repositories';
 import { inject, injectable } from 'tsyringe';
 
@@ -10,7 +10,7 @@ class ListCitiesUseCase {
     private citiesRepository: ICityRepository,
   ) {}
 
-  async execute({ name, state }: ListCitiesDTOS): Promise<City[]> {
+  async execute({ name, state }: IListCitiesDTOS): Promise<City[]> {
     return this.citiesRepository.find({ name, state });
   }
 }

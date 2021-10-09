@@ -1,12 +1,13 @@
 import { BaseEntity } from '@core/domain/BaseEntity';
 
-import { CreateCityDTO } from '../dtos/CreateCityDTO';
+import { ICreateCityDTO } from '../dtos/ICreateCityDTO';
 
 class City extends BaseEntity {
   name: string;
+
   state: string;
 
-  public static create = (data: CreateCityDTO): City =>
+  public static create = (data: ICreateCityDTO): City =>
     Object.assign(new City(), data);
 }
 

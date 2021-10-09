@@ -1,12 +1,13 @@
 import { City } from '../domain/City';
-import { CreateCityDTO } from '../dtos/CreateCityDTO';
-import { ListCitiesDTOS } from '../dtos/ListCitiesDTOS';
+import { ICreateCityDTO } from '../dtos/ICreateCityDTO';
+import { IListCitiesDTOS } from '../dtos/IListCitiesDTOS';
 
 interface ICityRepository {
-  create(data: CreateCityDTO): Promise<City>;
+  create(data: ICreateCityDTO): Promise<City>;
   findByName(name: string): Promise<City[]>;
-  find(data: ListCitiesDTOS): Promise<City[]>;
+  find(data: IListCitiesDTOS): Promise<City[]>;
   findByState(state: string): Promise<City[]>;
+  findById(city_id: string): Promise<City>;
 }
 
 export { ICityRepository };

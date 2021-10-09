@@ -1,5 +1,5 @@
 import { City } from '@modules/cities/domain/City';
-import { CreateCityDTO } from '@modules/cities/dtos/CreateCityDTO';
+import { ICreateCityDTO } from '@modules/cities/dtos/ICreateCityDTO';
 import { CityAlreadyExists } from '@modules/cities/errors/CityAlreadyExists';
 import { CITY, ICityRepository } from '@modules/cities/repositories';
 import { inject, injectable } from 'tsyringe';
@@ -11,7 +11,7 @@ class CreateCityUseCase {
     private readonly citiesRepository: ICityRepository,
   ) {}
 
-  async execute({ name, state }: CreateCityDTO): Promise<City> {
+  async execute({ name, state }: ICreateCityDTO): Promise<City> {
     const cities = await this.citiesRepository.findByName(name);
 
     const cityAlreadyExists = cities.some(

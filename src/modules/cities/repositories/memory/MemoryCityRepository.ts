@@ -1,13 +1,13 @@
 import { City } from '@modules/cities/domain/City';
-import { CreateCityDTO } from '@modules/cities/dtos/CreateCityDTO';
-import { ListCitiesDTOS } from '@modules/cities/dtos/ListCitiesDTOS';
+import { ICreateCityDTO } from '@modules/cities/dtos/ICreateCityDTO';
+import { IListCitiesDTOS } from '@modules/cities/dtos/IListCitiesDTOS';
 
 import { ICityRepository } from '../ICityRepository';
 
 class MemoryCityRepository implements ICityRepository {
   private cities: City[] = [];
 
-  async create({ name, state }: CreateCityDTO): Promise<City> {
+  async create({ name, state }: ICreateCityDTO): Promise<City> {
     const city = City.create({ name, state });
 
     this.cities.push(city);
@@ -15,12 +15,12 @@ class MemoryCityRepository implements ICityRepository {
     return city;
   }
 
-  async find({ name, state }: ListCitiesDTOS): Promise<City[]> {
+  async find({ name, state }: IListCitiesDTOS): Promise<City[]> {
     if (name && state) {
       return this.cities.filter(
         city =>
-          city.name.toLowerCase() === name?.toLowerCase() &&
-          city.state.toLowerCase() === state?.toLowerCase(),
+          city.name.toLowerCase() === name.toLowerCase() &&
+          city.state.toLowerCase() === state.toLowerCase(),
       );
     }
 
@@ -49,6 +49,10 @@ class MemoryCityRepository implements ICityRepository {
     );
 
     return cities;
+  }
+
+  async findById(city_id: string): Promise<City> {
+    return this.cities.find(city => city.id === city_id);
   }
 }
 
