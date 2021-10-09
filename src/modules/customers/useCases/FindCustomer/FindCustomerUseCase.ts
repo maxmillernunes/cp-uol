@@ -1,4 +1,5 @@
 import { Customer } from '@modules/customers/domain/Customer';
+import { CustomerNotFound } from '@modules/customers/errors/CustomerNotFound';
 import { CUSTOMER, ICustomerRepository } from '@modules/customers/repositories';
 import { inject, injectable } from 'tsyringe';
 
@@ -10,6 +11,12 @@ class FindCustomerUseCase {
   ) {}
 
   async execute(customer_id: string): Promise<Customer> {
+    const userExists = await this.customerRepository.findById(customer_id);
+
+    if (!userExists) {
+      throw new CustomerNotFound();
+    }
+
     return this.customerRepository.findById(customer_id);
   }
 }

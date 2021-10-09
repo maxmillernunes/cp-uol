@@ -1,5 +1,4 @@
 import { Customer } from '@modules/customers/domain/Customer';
-import { IListCustomerDTO } from '@modules/customers/dtos/IListCustomerDTO';
 import { CUSTOMER, ICustomerRepository } from '@modules/customers/repositories';
 import { inject, injectable } from 'tsyringe';
 
@@ -10,7 +9,7 @@ class ListCustomersUseCase {
     private customerRepository: ICustomerRepository,
   ) {}
 
-  async execute({ name }: IListCustomerDTO): Promise<Customer[]> {
+  async execute(name?: string): Promise<Customer[]> {
     return this.customerRepository.find(name);
   }
 }
