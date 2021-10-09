@@ -1,7 +1,7 @@
+import { CityNotFound } from '@modules/cities/errors/CityNotFound';
 import { CITY, ICityRepository } from '@modules/cities/repositories';
 import { Customer } from '@modules/customers/domain/Customer';
 import { ICreateCustomerDTO } from '@modules/customers/dtos/ICreateCustomerDTO';
-import { CityNotFound } from '@modules/customers/errors/CityNotFound';
 import { InvalidGenre } from '@modules/customers/errors/InvalidGenre';
 import { CUSTOMER, ICustomerRepository } from '@modules/customers/repositories';
 import { inject, injectable } from 'tsyringe';
