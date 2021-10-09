@@ -1,5 +1,6 @@
 import { Customer } from '@modules/customers/domain/Customer';
 import { ICreateCustomerDTO } from '@modules/customers/dtos/ICreateCustomerDTO';
+import { IUpdateUserDTO } from '@modules/customers/dtos/IUpdateUserDTO';
 
 import { ICustomerRepository } from '../ICustomerRepository';
 
@@ -38,6 +39,20 @@ class MemoryCustomerRepository implements ICustomerRepository {
     );
 
     return customers;
+  }
+
+  async updateUser({ customer_id, name }: IUpdateUserDTO): Promise<void> {
+    const userIndex = this.customers.findIndex(user => user.id === customer_id);
+
+    this.customers[userIndex].name = name;
+  }
+
+  async delete(customer_id: string): Promise<void> {
+    const customerIndex = this.customers.findIndex(
+      customer => customer.id === customer_id,
+    );
+
+    this.customers.splice(customerIndex, 1);
   }
 }
 
