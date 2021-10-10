@@ -6,11 +6,11 @@ import { CustomerNotFound } from '@modules/customers/errors/CustomerNotFound';
 import { MemoryCustomerRepository } from '@modules/customers/repositories';
 import { v4 as uuidv4 } from 'uuid';
 
-import { RemoveCustomerUseCase } from '.';
+import { UpdateCustomerUseCase } from '.';
 
 describe('Customer', () => {
-  describe('ListCustomer', () => {
-    let deleteCustomers: RemoveCustomerUseCase;
+  describe('UpdateCustomer', () => {
+    let deleteCustomers: UpdateCustomerUseCase;
     let customerRepository: MemoryCustomerRepository;
     let cityRepository: MemoryCityRepository;
 
@@ -19,7 +19,7 @@ describe('Customer', () => {
     beforeEach(async () => {
       customerRepository = new MemoryCustomerRepository();
       cityRepository = new MemoryCityRepository();
-      deleteCustomers = new RemoveCustomerUseCase(customerRepository);
+      deleteCustomers = new UpdateCustomerUseCase(customerRepository);
 
       city = await cityRepository.create({
         name: 'Pereiro',
@@ -27,7 +27,7 @@ describe('Customer', () => {
       });
     });
 
-    it('Should be able to remove a customer registered', async () => {
+    it('Should be able to update a customer registered', async () => {
       const customer: ICreateCustomerDTO = {
         name: 'Milla Nunes',
         genre: genre_type.FEMALE,
@@ -53,20 +53,28 @@ describe('Customer', () => {
       await customerRepository.create(customer2);
       await customerRepository.create(customer3);
 
-      await deleteCustomers.execute(customerCreated.id);
+      await deleteCustomers.execute({
+        customer_id: customerCreated.id,
+        name: 'Carlos',
+      });
 
       const findCustomer = await customerRepository.find();
 
-      expect(findCustomer.length).toBe(2);
-      expect(
-        await customerRepository.findById(customerCreated.id),
-      ).toBeUndefined();
+      const findCustomer2 = await customerRepository.findById(
+        customerCreated.id,
+      );
+
+      expect(findCustomer.length).toBe(3);
+      expect(findCustomer2.name).toBe('Carlos');
     });
 
-    it('should not be able to delete non-existent id', async () => {
-      await expect(deleteCustomers.execute(uuidv4())).rejects.toEqual(
-        new CustomerNotFound(),
-      );
+    it('should not be able to updated non-existent id', async () => {
+      await expect(
+        deleteCustomers.execute({
+          customer_id: uuidv4(),
+          name: 'Carlos',
+        }),
+      ).rejects.toEqual(new CustomerNotFound());
     });
   });
 });

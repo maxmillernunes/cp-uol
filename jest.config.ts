@@ -6,6 +6,7 @@ import { compilerOptions } from './tsconfig.json';
 export default {
   bail: true,
   clearMocks: true,
+  verbose: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   coverageReporters: ['text-summary', 'lcov'],
@@ -19,4 +20,5 @@ export default {
   watchPathIgnorePatterns: ['node_modules'],
   transformIgnorePatterns: ['node_modules'],
   collectCoverageFrom: ['src/modules/**/useCases/**/*.ts'],
+  maxWorkers: 1,
 };

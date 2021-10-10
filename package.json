@@ -17,6 +17,7 @@
     "morgan": "^1.10.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
+    "supertest": "^6.1.6",
     "tsyringe": "^4.6.0",
     "uuid": "^8.3.2"
   },
@@ -27,10 +28,9 @@
     "start": "node build/server.js",
     "lint": "eslint src --ext .ts --fix",
     "format": "prettier --write src/**/*.ts",
+    "migrate": "prisma migrate dev --skip-generate",
     "build": "rimraf build; babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored",
-    "test:spec": "jest  --no-cache --verbose --detectOpenHandles --maxWorkers=4 --forceExit",
-    "test": "dotenv -e .env.test -- yarn migrate:init && dotenv -e .env.test jest --runInBand --no-cache --watchAll=false --coverage",
-    "migrate:init": "yarn prisma migrate dev --name init"
+    "test": "dotenv -e .env.test yarn migrate; dotenv -e .env.test jest -t --fixOrderTest --verbose --maxConcurrency=8  --no-cache --detectOpenHandles --forceExit"
   },
   "config": {
     "commitizen": {
@@ -51,6 +51,7 @@
     "@types/jest": "^27.0.2",
     "@types/morgan": "^1.9.2",
     "@types/node": "^15.0.1",
+    "@types/supertest": "^2.0.11",
     "@types/uuid": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
