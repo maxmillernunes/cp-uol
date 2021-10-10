@@ -19,7 +19,7 @@
 ### Baixando e Instalando Depedências
 
 ```sh
- git clone git@github.com:mpgxc/fuzzy-umbrella.git
+ git clone git@github.com:Maxmiller-Nunes/cp-uol.git
 ```
 
 ```sh
