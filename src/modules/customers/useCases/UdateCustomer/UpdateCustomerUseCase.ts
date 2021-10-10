@@ -17,7 +17,7 @@ class UpdateCustomerUseCase {
       throw new CustomerNotFound();
     }
 
-    return this.customerRepository.updateUser({ customer_id, name });
+    return this.customerRepository.save({ customer_id, name });
   }
 }
 

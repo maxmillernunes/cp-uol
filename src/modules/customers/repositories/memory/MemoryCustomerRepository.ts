@@ -41,7 +41,7 @@ class MemoryCustomerRepository implements ICustomerRepository {
     return customers;
   }
 
-  async updateUser({ customer_id, name }: IUpdateUserDTO): Promise<void> {
+  async save({ customer_id, name }: IUpdateUserDTO): Promise<void> {
     const userIndex = this.customers.findIndex(user => user.id === customer_id);
 
     this.customers[userIndex].name = name;

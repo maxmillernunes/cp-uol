@@ -7,7 +7,7 @@ interface ICustomerRepository {
   find(name?: string): Promise<Customer[]>;
   findByName(name: string): Promise<Customer[]>;
   findById(customer_id: string): Promise<Customer>;
-  updateUser(data: IUpdateUserDTO): Promise<void>;
+  save(data: IUpdateUserDTO): Promise<void>;
   delete(customer_id: string): Promise<void>;
 }
 

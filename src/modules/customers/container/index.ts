@@ -1,12 +1,9 @@
+import { CustomersRepository } from '@infra/database/repositories';
 import { container } from 'tsyringe';
 
-import {
-  CUSTOMER,
-  ICustomerRepository,
-  MemoryCustomerRepository,
-} from '../repositories';
+import { CUSTOMER, ICustomerRepository } from '../repositories';
 
 container.registerSingleton<ICustomerRepository>(
   CUSTOMER.CUSTOMER_REPOSITORY,
-  MemoryCustomerRepository,
+  CustomersRepository,
 );
