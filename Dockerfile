@@ -8,6 +8,8 @@ RUN yarn
 
 COPY . .
 
-EXPOSE 3339
+RUN yarn prisma generate
+
+EXPOSE ${API_PORT}
 
 CMD ["yarn", "dev"]
