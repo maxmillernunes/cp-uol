@@ -23,7 +23,7 @@
 ```
 
 ```sh
- cd fuzzy-umbrella
+ cd cp-uol
 ```
 
 ```sh
