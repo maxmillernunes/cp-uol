@@ -19,16 +19,16 @@ enum Genre {
 model City {
   id         String   @id @default(uuid())
   is_active  Boolean  @default(true)
-  name       String   @unique
+  name       String
   state      String
   created_at DateTime @default(now())
   updated_at DateTime @default(now()) @updatedAt
 
-  User User[]
+  Customer Customer[]
   @@map("cities")
 }
 
-model User {
+model Customer {
   id         String   @id @default(uuid())
   is_active  Boolean  @default(true)
   name       String
@@ -39,5 +39,5 @@ model User {
   created_at DateTime @default(now())
   updated_at DateTime @default(now()) @updatedAt
 
-  @@map("users")
+  @@map("customers")
 }
